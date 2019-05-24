@@ -1,0 +1,19 @@
+{
+  "name": "data-api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "PGDATABASE=bart.korn node ./bin/www",
+    "test": "PGDATABASE=bart.korn mocha"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "morgan": "~1.9.0",
+    "pg": "^7.10.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  }
+}

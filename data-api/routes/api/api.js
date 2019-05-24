@@ -1,0 +1,16 @@
+const Item = require('../api/item');
+const Category = require('../api/category');
+
+const pg = require('pg');
+const db = new pg.Client();
+db.connect();
+
+exports.getItem = Item.get(db);
+exports.updateItem = Item.update(db);
+exports.deleteItem = Item.delete(db);
+exports.addItem = Item.add(db);
+
+exports.getCategory = Category.get(db);
+exports.updateCategory = Category.update(db);
+exports.deleteCategory = Category.delete(db);
+exports.addCategory = Category.add(db);
