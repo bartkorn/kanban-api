@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "PGDATABASE=bart.korn node ./bin/www",
-    "test": "mocha",
+    "test": "PGHOST=postgres PGDATABASE=$POSTGRES_DB PGUSER=$POSTGRES_USER PGPASSWORD=$POSTGRES_PASSWORD mocha",
     "test_local": "PGDATABASE=bart.korn mocha"
   },
   "dependencies": {

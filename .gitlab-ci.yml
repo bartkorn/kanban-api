@@ -4,8 +4,9 @@ services:
   - postgres:latest
 
 variables:
-  PGDATABASE: nice_marmot
-  PGUSER: runner
+  POSTGRES_DB: nice_marmot
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
 
 cache:
   paths:
