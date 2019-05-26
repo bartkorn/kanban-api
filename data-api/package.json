@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "PGDATABASE=bart.korn node ./bin/www",
-    "test": "PGDATABASE=nice_marmot PGUSER=runner mocha",
+    "test": "mocha",
     "test_local": "PGDATABASE=bart.korn mocha"
   },
   "dependencies": {
