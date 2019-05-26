@@ -1,5 +1,13 @@
 image: node:10.15.3
 
+services:
+  - postgres:latest
+
+variables:
+  POSTGRES_DB: pnice_marmot
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
+
 cache:
   paths:
   - node_modules/

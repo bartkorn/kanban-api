@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "PGDATABASE=bart.korn node ./bin/www",
-    "test": "PGDATABASE=bart.korn mocha"
+    "test": "PGDATABASE=nice_marmot PGUSER=runner mocha",
+    "test_local": "PGDATABASE=bart.korn mocha"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
