@@ -53,10 +53,26 @@ class Item {
     }
 
     static getCount(dbHandle, cb) {
-        const text = 'SELECt COUNT(*) FROM item';
+        const text = 'SELECT COUNT(*) FROM item';
         dbHandle.query(text, (err, result) => {
             if (err) cb(err);
-            cb(null, result.row[0]);
+            cb(null, result.rows[0]);
+        });
+    }
+
+    static getAll(dbHandle, cb) {
+        const text = 'SELECT * FROM item';
+        dbHandle.query(text, (err, results) => {
+            if (err) cb(err);
+            if (results && results.rows.length > 0){
+                let items = [];
+                for (let item of results.rows) {
+                    items.push(new Item(item));
+                }
+                cb(null, items);
+            }
+            else
+                cb(null, null);
         });
     }
 }

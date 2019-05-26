@@ -81,6 +81,21 @@ describe('dbItemTest', () => {
                 done();
             });
         });
+        it('should get count of items in database', (done) => {
+            Item.getCount(db, (err, count) => {
+                assert(err == null);
+                assert(parseInt(count.count) == '2');
+                done();
+            })
+        });
+        it('should get all items from database', (done) => {
+            Item.getAll(db, (err, items) => {
+                assert(err == null);
+                assert(items[0].id == 1);
+                assert(items[1].id == 2);
+                done();
+            })
+        });
         it('should delete Item from database', (done) => {
             Item.deleteById(db, 1, (err) => {
                 assert(err == null);

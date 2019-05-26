@@ -9,6 +9,8 @@ exports.getItem = Item.get(db);
 exports.updateItem = Item.update(db);
 exports.deleteItem = Item.delete(db);
 exports.addItem = Item.add(db);
+exports.countItem = Item.count(db);
+exports.getAllItems = Item.all(db);
 
 exports.getCategory = Category.get(db);
 exports.updateCategory = Category.update(db);

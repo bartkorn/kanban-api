@@ -56,3 +56,21 @@ exports.delete = (db) => {
     };    
 };
 
+exports.count = (db) => {
+    return (req, res, next) => {
+        Item.getCount(db, (err, count) => {
+            if (err) return next(err);
+            res.json(count);
+        });
+    };
+};
+
+exports.all = (db) => {
+    return (req, res, next) => {
+        Item.getAll(db, (err, items) => {
+            if (err) return next(err);
+            res.json(items);
+        });
+    };
+};
+
