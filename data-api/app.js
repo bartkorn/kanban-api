@@ -26,5 +26,6 @@ app.get('/api/category/:id', api.getCategory);
 app.delete('/api/category/:id', api.deleteCategory);
 app.post('/api/category', api.addCategory);
 app.post('/api/category/:id', api.updateCategory);
+app.get('/api/categories/count', api.countCategory);
 
 module.exports = app;

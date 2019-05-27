@@ -59,6 +59,13 @@ describe('dbCategoryTest', () => {
                 done();
             });
         });
+        it('should get the count of categories in database', (done) => {
+            Category.getCount(db, (err, count) => {
+                assert(err == null);
+                assert(count.count == 2);
+                done();
+            });
+        });
         it('should delete Category from database', (done) => {
             Category.deleteById(db, 1, (err) => {
                 assert(err == null);

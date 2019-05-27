@@ -45,3 +45,12 @@ exports.delete = (db) => {
         });
     };
 }; 
+
+exports.count = (db) => {
+    return (req, res, next) => {
+        Category.getCount(db, (err, count) => {
+            if (err) return next(err);
+            res.json(count);
+        });
+    }
+}

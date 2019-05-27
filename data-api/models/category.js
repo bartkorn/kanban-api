@@ -51,6 +51,14 @@ class Category {
             cb(null);
         });
     }
+
+    static getCount(dbHandle, cb) {
+        const text = 'SELECT COUNT(*) FROM category';
+        dbHandle.query(text, (err, result) => {
+            if (err) cb(err);
+            cb(null, result.rows[0]);
+        });
+    }
 }
 
 module.exports = Category;
