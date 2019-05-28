@@ -66,6 +66,14 @@ describe('dbCategoryTest', () => {
                 done();
             });
         });
+        it('should get all categories from database', (done) => {
+            Category.getAll(db, (err, categories) => {
+                assert(err == null);
+                assert(categories.length == 2);
+                assert(categories[0].name == 'shopping');
+                done();
+            });
+        });
         it('should delete Category from database', (done) => {
             Category.deleteById(db, 1, (err) => {
                 assert(err == null);

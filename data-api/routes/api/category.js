@@ -52,5 +52,14 @@ exports.count = (db) => {
             if (err) return next(err);
             res.json(count);
         });
-    }
-}
+    };
+};
+
+exports.all = (db) => {
+    return (req, res, next) => {
+        Category.getAll(db, (err, categories) => {
+            if(err) return next(err);
+            res.json(categories);
+        });
+    };
+};

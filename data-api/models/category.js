@@ -59,6 +59,22 @@ class Category {
             cb(null, result.rows[0]);
         });
     }
+
+    static getAll(dbHandle, cb) {
+        const text = 'SELECT * FROM category';
+        dbHandle.query(text, (err, results) => {
+            if (err) cb(err);
+            if (results && results.rows.length > 0) {
+                let categories = [];
+                for (let category of results.rows) {
+                    categories.push(new Category(category));
+                }
+                cb(null, categories);
+            } else {
+                cb(null, null);
+            }
+        });
+    }
 }
 
 module.exports = Category;

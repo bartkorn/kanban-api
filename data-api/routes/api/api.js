@@ -17,3 +17,4 @@ exports.updateCategory = Category.update(db);
 exports.deleteCategory = Category.delete(db);
 exports.addCategory = Category.add(db);
 exports.countCategory = Category.count(db);
+exports.getAllCategories = Category.all(db);
