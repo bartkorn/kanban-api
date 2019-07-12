@@ -8,8 +8,8 @@ class Item {
     }
 
     save(dbHandle, cb) {
-        const text = 'INSERT INTO item(created, started, finished, deadline, state_id, description, notes, category_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id';
-        const values = [this.created, this.started, this.finished, this.deadline, this.state_id, this.description, this.notes, this.category_id];
+        const text = 'INSERT INTO item(created, started, finished, deadline, state_id, description, notes, category_id, priority) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id';
+        const values = [this.created, this.started, this.finished, this.deadline, this.state_id, this.description, this.notes, this.category_id, this.priority];
         dbHandle.query(text, values, (err, result) => {
             if (err) cb(err);
             const id = result.rows[0].id;
@@ -20,8 +20,8 @@ class Item {
 
     update(dbHandle, cb) {
         if (this.id) {
-            const text = 'UPDATE item SET created = $1, started = $2, finished = $3, deadline = $4, state_id = $5, description = $6, notes = $7, category_id = $8 WHERE id = $9';
-            const values = [this.created, this.started, this.finished, this.deadline, this.state_id, this.description, this.notes, this.category_id, this.id];
+            const text = 'UPDATE item SET created = $1, started = $2, finished = $3, deadline = $4, state_id = $5, description = $6, notes = $7, category_id = $8, priority = $9 WHERE id = $10';
+            const values = [this.created, this.started, this.finished, this.deadline, this.state_id, this.description, this.notes, this.category_id, this.priority, this.id];
             dbHandle.query(text, values, (err, result) => {
                 if (err) cb(err);
                 cb(null);

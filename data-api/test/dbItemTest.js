@@ -11,7 +11,8 @@ const item = new Item({
     state_id: 2,
     description: 'Test',
     notes: 'Test',
-    category_id: 1
+    category_id: 1,
+    priority: 1
 });
 
 describe('dbItemTest', () => {
@@ -31,7 +32,8 @@ describe('dbItemTest', () => {
                 state_id integer,
                 description character varying,
                 notes character varying,
-                category_id integer
+                category_id integer,
+                priority integer
             );`, (err) => {
                 assert(err == null);
                 done();
@@ -73,7 +75,8 @@ describe('dbItemTest', () => {
                 state_id: 2,
                 description: 'Test New',
                 notes: 'Test New',
-                category_id: 1
+                category_id: 1,
+                priority: 1
             });
             newItem.update(db, (err, id) => {
                 assert(err == null);

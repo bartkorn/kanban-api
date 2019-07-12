@@ -20,7 +20,8 @@ exports.add = (db) => {
             state_id: req.body.state_id,
             description: req.body.description,
             notes: req.body.notes,
-            category_id: req.body.category_id
+            category_id: req.body.category_id,
+            priority: req.body.priority
         });
         item.save(db, (err, id) => {
             if (err) return next(err);
