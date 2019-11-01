@@ -11,6 +11,7 @@ exports.deleteItem = Item.delete(db);
 exports.addItem = Item.add(db);
 exports.countItem = Item.count(db);
 exports.getAllItems = Item.all(db);
+exports.getMaxPriority = Item.maxPriority(db);
 
 exports.getCategory = Category.get(db);
 exports.updateCategory = Category.update(db);

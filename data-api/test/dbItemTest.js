@@ -12,7 +12,7 @@ const item = new Item({
     description: 'Test',
     notes: 'Test',
     category_id: 1,
-    priority: 1
+    priority: 3
 });
 
 describe('dbItemTest', () => {
@@ -58,6 +58,7 @@ describe('dbItemTest', () => {
         it('should update existing Item in database', (done) => {
             item.description = 'Test2';
             item.update(db, (err) => {
+
                 assert(err == null);
                 Item.getById(db, 1, (err, updatedItem) => {
                     assert(err == null);
@@ -94,10 +95,17 @@ describe('dbItemTest', () => {
         it('should get all items from database', (done) => {
             Item.getAll(db, (err, items) => {
                 assert(err == null);
-                assert(items[0].id == 1);
-                assert(items[1].id == 2);
+                assert(items[0].id == 2);
+                assert(items[1].id == 1);
                 done();
-            })
+            });
+        });
+        it('should get maximum priority from all items', (done) => {
+            Item.getMaxPriority(db, (err, priorities) => {
+                assert(err == null);
+                assert(priorities.max = 3);
+                done();
+            });
         });
         it('should delete Item from database', (done) => {
             Item.deleteById(db, 1, (err) => {

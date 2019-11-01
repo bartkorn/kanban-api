@@ -61,7 +61,7 @@ class Item {
     }
 
     static getAll(dbHandle, cb) {
-        const text = 'SELECT * FROM item';
+        const text = 'SELECT * FROM item ORDER BY priority ASC';
         dbHandle.query(text, (err, results) => {
             if (err) cb(err);
             if (results && results.rows.length > 0){
@@ -73,6 +73,14 @@ class Item {
             }
             else
                 cb(null, null);
+        });
+    }
+
+    static getMaxPriority(dbHandle, cb) {
+        const text = 'SELECT MAX(priority) FROM item WHERE state_id = 1';
+        dbHandle.query(text, (err, result) => {
+            if (err) cb(err);
+            cb(null, result.rows[0]);
         });
     }
 }

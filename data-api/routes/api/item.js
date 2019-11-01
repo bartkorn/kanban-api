@@ -75,3 +75,17 @@ exports.all = (db) => {
     };
 };
 
+exports.maxPriority = (db) => {
+    return (req, res, next) => {
+        Item.getMaxPriority(db, (err, priority) => {
+            if (err) return next(err);
+            if (priority.max) {
+                res.json(priority);
+            } else {
+                res.json({max: 0});
+            }
+
+        });
+    };
+};
+

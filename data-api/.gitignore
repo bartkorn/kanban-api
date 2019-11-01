@@ -63,3 +63,5 @@ typings/
 # visual studio code files
 .vscode
 ../.vscode
+.idea/
+../.vscode/
