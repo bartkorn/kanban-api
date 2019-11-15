@@ -23,6 +23,7 @@ app.get('/api/item/:id', api.getItem);
 app.delete('/api/item/:id', api.deleteItem);
 app.post('/api/item', api.addItem);
 app.post('/api/item/:id', api.updateItem);
+app.post('/api/items', api.updateMany);
 app.get('/api/items/count', api.countItem);
 app.get('/api/items/all', api.getAllItems);
 app.get('/api/items/max_priority', api.getMaxPriority);

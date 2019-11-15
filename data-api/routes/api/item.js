@@ -37,6 +37,7 @@ exports.update = (db) => {
         Item.getById(db, req.params.id, (err, item) => {
             if (err) return next(err);
             if (!item) return res.sendStatus(404);
+            console.log(req.body);
             for (let key in req.body)
                 item[key] = req.body[key];
             item.update(db, (err) => {
@@ -47,6 +48,23 @@ exports.update = (db) => {
     };    
 };
 
+exports.updateMany = (db) => {
+    return (req, res, next) => {
+        console.log(req.body);
+        for(let itemToModify of req.body) {
+            Item.getById(db, itemToModify.id, (err, item) => {
+                if (err) return next(err);
+                if (!item) return res.sendStatus(404);
+                for (let key in itemToModify.properties)
+                    item[key] = itemToModify.properties[key];
+                item.update(db, (err) => {
+                    if (err) next(err);
+                });
+            });
+        }
+        res.json(`Items successfully updated`);
+    };
+};
 
 exports.delete = (db) => {
     return (req, res, next) => {

@@ -7,6 +7,7 @@ db.connect();
 
 exports.getItem = Item.get(db);
 exports.updateItem = Item.update(db);
+exports.updateMany = Item.updateMany(db);
 exports.deleteItem = Item.delete(db);
 exports.addItem = Item.add(db);
 exports.countItem = Item.count(db);
