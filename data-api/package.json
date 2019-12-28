@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "PGDATABASE=bart.korn node ./bin/www",
+    "amazon_ec2": "PGDATABASE=$PGDATABASE PGUSER=$PGUSER PGPASSWORD=$PGPASSWORD node ./bin/www",
     "test": "PGHOST=postgres PGDATABASE=$POSTGRES_DB PGUSER=$POSTGRES_USER PGPASSWORD=$POSTGRES_PASSWORD mocha",
     "test_local": "PGDATABASE=testdb mocha"
   },
